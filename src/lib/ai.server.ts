@@ -1,11 +1,12 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { generateText } from "ai";
 
+import type { Database } from "@/integrations/supabase/types";
 import { createLovableAiGatewayProvider, TUTOR_MODEL } from "./ai-gateway.server";
 import { breakdownSentence, demoPronunciation, demoTurn, romanize } from "./ai/demo";
 import type { PronunciationResult, TutorTurn } from "./ai/types";
 
-type Db = SupabaseClient<never, never, never>;
+type Db = SupabaseClient<Database>;
 
 export const FREE_DAILY_AI_CONVERSATIONS = 1;
 
