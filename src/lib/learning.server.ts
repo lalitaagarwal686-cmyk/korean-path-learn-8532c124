@@ -40,9 +40,9 @@ export async function createSession(
   userId: string,
   input: {
     kind: "scenario" | "free_talk" | "lesson" | "shadowing";
-    scenarioId?: string | null;
-    lessonId?: string | null;
-    tutorId?: string | null;
+    scenarioId?: string | null | undefined;
+    lessonId?: string | null | undefined;
+    tutorId?: string | null | undefined;
     topic: string;
     speechSpeed: string;
   },
@@ -188,8 +188,8 @@ export async function scoreAttempt(
   db: Db,
   userId: string,
   input: {
-    sessionId?: string | null;
-    lessonId?: string | null;
+    sessionId?: string | null | undefined;
+    lessonId?: string | null | undefined;
     targetText: string;
     transcript: string;
     mode: "repeat" | "free" | "shadowing";
