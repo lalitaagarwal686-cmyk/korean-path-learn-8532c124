@@ -130,7 +130,6 @@ export function RealisticAITutor({
           {/* shoulders */}
           <path d="M14 140 C18 108 40 98 60 98 C80 98 102 108 106 140 Z" fill={accent} opacity="0.85" />
           {/* neck */}
-          <rect x="52" y="84" width="16" height="18" rx="8" fill="#e8b furt" opacity="0" />
           <rect x="52" y="82" width="16" height="20" rx="8" fill="#f0c9ae" />
           {/* hair back */}
           <ellipse cx="60" cy="52" rx="34" ry="38" fill="#2b2118" />
