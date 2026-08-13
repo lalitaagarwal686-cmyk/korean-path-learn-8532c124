@@ -68,7 +68,7 @@ export function RealisticAITutor({
     return () => clearInterval(id);
   }, []);
 
-  const accent = persona.accentColor || "hsl(var(--primary))";
+  const accent = persona.accentColor || "var(--primary)";
   const mouthOpen =
     state === "speaking" ? 4 + amplitude * 16 : state === "celebrating" ? 8 : 2.5;
   const mouthWidth = state === "speaking" ? 26 - amplitude * 6 : 24;
