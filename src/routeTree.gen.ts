@@ -10,16 +10,47 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as TopikRouteImport } from './routes/topik'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppAchievementsRouteImport } from './routes/app.achievements'
+import { Route as AppDashboardRouteImport } from './routes/app.dashboard'
+import { Route as AppFreetalkRouteImport } from './routes/app.freetalk'
+import { Route as AppGrammarRouteImport } from './routes/app.grammar'
+import { Route as AppHistoryRouteImport } from './routes/app.history'
+import { Route as AppLeaderboardRouteImport } from './routes/app.leaderboard'
+import { Route as AppLearnRouteImport } from './routes/app.learn'
+import { Route as AppOnboardingRouteImport } from './routes/app.onboarding'
+import { Route as AppPricingRouteImport } from './routes/app.pricing'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppProgressRouteImport } from './routes/app.progress'
+import { Route as AppScenariosRouteImport } from './routes/app.scenarios'
+import { Route as AppShadowingRouteImport } from './routes/app.shadowing'
+import { Route as AppSpeakRouteImport } from './routes/app.speak'
+import { Route as AppTopikRouteImport } from './routes/app.topik'
+import { Route as AppVocabularyRouteImport } from './routes/app.vocabulary'
+import { Route as AppLessonSlugRouteImport } from './routes/app.lesson.$slug'
+import { Route as AppScenariosSlugRouteImport } from './routes/app.scenarios.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesRoute = CoursesRouteImport.update({
@@ -52,67 +83,288 @@ const TopikRoute = TopikRouteImport.update({
   path: '/topik',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAchievementsRoute = AppAchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFreetalkRoute = AppFreetalkRouteImport.update({
+  id: '/freetalk',
+  path: '/freetalk',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppGrammarRoute = AppGrammarRouteImport.update({
+  id: '/grammar',
+  path: '/grammar',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHistoryRoute = AppHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLeaderboardRoute = AppLeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLearnRoute = AppLearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppOnboardingRoute = AppOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPricingRoute = AppPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProgressRoute = AppProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppScenariosRoute = AppScenariosRouteImport.update({
+  id: '/scenarios',
+  path: '/scenarios',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppShadowingRoute = AppShadowingRouteImport.update({
+  id: '/shadowing',
+  path: '/shadowing',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSpeakRoute = AppSpeakRouteImport.update({
+  id: '/speak',
+  path: '/speak',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTopikRoute = AppTopikRouteImport.update({
+  id: '/topik',
+  path: '/topik',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppVocabularyRoute = AppVocabularyRouteImport.update({
+  id: '/vocabulary',
+  path: '/vocabulary',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLessonSlugRoute = AppLessonSlugRouteImport.update({
+  id: '/lesson/$slug',
+  path: '/lesson/$slug',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppScenariosSlugRoute = AppScenariosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AppScenariosRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
   '/courses': typeof CoursesRoute
   '/learn': typeof LearnRoute
   '/practice': typeof PracticeRoute
   '/profile': typeof ProfileRoute
   '/progress': typeof ProgressRoute
   '/topik': typeof TopikRoute
+  '/app/achievements': typeof AppAchievementsRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/freetalk': typeof AppFreetalkRoute
+  '/app/grammar': typeof AppGrammarRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/leaderboard': typeof AppLeaderboardRoute
+  '/app/learn': typeof AppLearnRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/pricing': typeof AppPricingRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/scenarios': typeof AppScenariosRouteWithChildren
+  '/app/shadowing': typeof AppShadowingRoute
+  '/app/speak': typeof AppSpeakRoute
+  '/app/topik': typeof AppTopikRoute
+  '/app/vocabulary': typeof AppVocabularyRoute
+  '/app/': typeof AppIndexRoute
+  '/app/lesson/$slug': typeof AppLessonSlugRoute
+  '/app/scenarios/$slug': typeof AppScenariosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/courses': typeof CoursesRoute
   '/learn': typeof LearnRoute
   '/practice': typeof PracticeRoute
   '/profile': typeof ProfileRoute
   '/progress': typeof ProgressRoute
   '/topik': typeof TopikRoute
+  '/app/achievements': typeof AppAchievementsRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/freetalk': typeof AppFreetalkRoute
+  '/app/grammar': typeof AppGrammarRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/leaderboard': typeof AppLeaderboardRoute
+  '/app/learn': typeof AppLearnRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/pricing': typeof AppPricingRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/scenarios': typeof AppScenariosRouteWithChildren
+  '/app/shadowing': typeof AppShadowingRoute
+  '/app/speak': typeof AppSpeakRoute
+  '/app/topik': typeof AppTopikRoute
+  '/app/vocabulary': typeof AppVocabularyRoute
+  '/app': typeof AppIndexRoute
+  '/app/lesson/$slug': typeof AppLessonSlugRoute
+  '/app/scenarios/$slug': typeof AppScenariosSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
   '/courses': typeof CoursesRoute
   '/learn': typeof LearnRoute
   '/practice': typeof PracticeRoute
   '/profile': typeof ProfileRoute
   '/progress': typeof ProgressRoute
   '/topik': typeof TopikRoute
+  '/app/achievements': typeof AppAchievementsRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/freetalk': typeof AppFreetalkRoute
+  '/app/grammar': typeof AppGrammarRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/leaderboard': typeof AppLeaderboardRoute
+  '/app/learn': typeof AppLearnRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/pricing': typeof AppPricingRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/scenarios': typeof AppScenariosRouteWithChildren
+  '/app/shadowing': typeof AppShadowingRoute
+  '/app/speak': typeof AppSpeakRoute
+  '/app/topik': typeof AppTopikRoute
+  '/app/vocabulary': typeof AppVocabularyRoute
+  '/app/': typeof AppIndexRoute
+  '/app/lesson/$slug': typeof AppLessonSlugRoute
+  '/app/scenarios/$slug': typeof AppScenariosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/app'
+    | '/auth'
     | '/courses'
     | '/learn'
     | '/practice'
     | '/profile'
     | '/progress'
     | '/topik'
+    | '/app/achievements'
+    | '/app/dashboard'
+    | '/app/freetalk'
+    | '/app/grammar'
+    | '/app/history'
+    | '/app/leaderboard'
+    | '/app/learn'
+    | '/app/onboarding'
+    | '/app/pricing'
+    | '/app/profile'
+    | '/app/progress'
+    | '/app/scenarios'
+    | '/app/shadowing'
+    | '/app/speak'
+    | '/app/topik'
+    | '/app/vocabulary'
+    | '/app/'
+    | '/app/lesson/$slug'
+    | '/app/scenarios/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/courses'
     | '/learn'
     | '/practice'
     | '/profile'
     | '/progress'
     | '/topik'
+    | '/app/achievements'
+    | '/app/dashboard'
+    | '/app/freetalk'
+    | '/app/grammar'
+    | '/app/history'
+    | '/app/leaderboard'
+    | '/app/learn'
+    | '/app/onboarding'
+    | '/app/pricing'
+    | '/app/profile'
+    | '/app/progress'
+    | '/app/scenarios'
+    | '/app/shadowing'
+    | '/app/speak'
+    | '/app/topik'
+    | '/app/vocabulary'
+    | '/app'
+    | '/app/lesson/$slug'
+    | '/app/scenarios/$slug'
   id:
     | '__root__'
     | '/'
+    | '/app'
+    | '/auth'
     | '/courses'
     | '/learn'
     | '/practice'
     | '/profile'
     | '/progress'
     | '/topik'
+    | '/app/achievements'
+    | '/app/dashboard'
+    | '/app/freetalk'
+    | '/app/grammar'
+    | '/app/history'
+    | '/app/leaderboard'
+    | '/app/learn'
+    | '/app/onboarding'
+    | '/app/pricing'
+    | '/app/profile'
+    | '/app/progress'
+    | '/app/scenarios'
+    | '/app/shadowing'
+    | '/app/speak'
+    | '/app/topik'
+    | '/app/vocabulary'
+    | '/app/'
+    | '/app/lesson/$slug'
+    | '/app/scenarios/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  AuthRoute: typeof AuthRoute
   CoursesRoute: typeof CoursesRoute
   LearnRoute: typeof LearnRoute
   PracticeRoute: typeof PracticeRoute
@@ -128,6 +380,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses': {
@@ -172,11 +438,202 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TopikRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/achievements': {
+      id: '/app/achievements'
+      path: '/achievements'
+      fullPath: '/app/achievements'
+      preLoaderRoute: typeof AppAchievementsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/freetalk': {
+      id: '/app/freetalk'
+      path: '/freetalk'
+      fullPath: '/app/freetalk'
+      preLoaderRoute: typeof AppFreetalkRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/grammar': {
+      id: '/app/grammar'
+      path: '/grammar'
+      fullPath: '/app/grammar'
+      preLoaderRoute: typeof AppGrammarRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/history': {
+      id: '/app/history'
+      path: '/history'
+      fullPath: '/app/history'
+      preLoaderRoute: typeof AppHistoryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/leaderboard': {
+      id: '/app/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/app/leaderboard'
+      preLoaderRoute: typeof AppLeaderboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/learn': {
+      id: '/app/learn'
+      path: '/learn'
+      fullPath: '/app/learn'
+      preLoaderRoute: typeof AppLearnRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/onboarding': {
+      id: '/app/onboarding'
+      path: '/onboarding'
+      fullPath: '/app/onboarding'
+      preLoaderRoute: typeof AppOnboardingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/pricing': {
+      id: '/app/pricing'
+      path: '/pricing'
+      fullPath: '/app/pricing'
+      preLoaderRoute: typeof AppPricingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/progress': {
+      id: '/app/progress'
+      path: '/progress'
+      fullPath: '/app/progress'
+      preLoaderRoute: typeof AppProgressRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/scenarios': {
+      id: '/app/scenarios'
+      path: '/scenarios'
+      fullPath: '/app/scenarios'
+      preLoaderRoute: typeof AppScenariosRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/shadowing': {
+      id: '/app/shadowing'
+      path: '/shadowing'
+      fullPath: '/app/shadowing'
+      preLoaderRoute: typeof AppShadowingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/speak': {
+      id: '/app/speak'
+      path: '/speak'
+      fullPath: '/app/speak'
+      preLoaderRoute: typeof AppSpeakRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/topik': {
+      id: '/app/topik'
+      path: '/topik'
+      fullPath: '/app/topik'
+      preLoaderRoute: typeof AppTopikRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/vocabulary': {
+      id: '/app/vocabulary'
+      path: '/vocabulary'
+      fullPath: '/app/vocabulary'
+      preLoaderRoute: typeof AppVocabularyRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/lesson/$slug': {
+      id: '/app/lesson/$slug'
+      path: '/lesson/$slug'
+      fullPath: '/app/lesson/$slug'
+      preLoaderRoute: typeof AppLessonSlugRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/scenarios/$slug': {
+      id: '/app/scenarios/$slug'
+      path: '/$slug'
+      fullPath: '/app/scenarios/$slug'
+      preLoaderRoute: typeof AppScenariosSlugRouteImport
+      parentRoute: typeof AppScenariosRoute
+    }
   }
 }
 
+interface AppScenariosRouteChildren {
+  AppScenariosSlugRoute: typeof AppScenariosSlugRoute
+}
+
+const AppScenariosRouteChildren: AppScenariosRouteChildren = {
+  AppScenariosSlugRoute: AppScenariosSlugRoute,
+}
+
+const AppScenariosRouteWithChildren = AppScenariosRoute._addFileChildren(
+  AppScenariosRouteChildren,
+)
+
+interface AppRouteChildren {
+  AppAchievementsRoute: typeof AppAchievementsRoute
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppFreetalkRoute: typeof AppFreetalkRoute
+  AppGrammarRoute: typeof AppGrammarRoute
+  AppHistoryRoute: typeof AppHistoryRoute
+  AppLeaderboardRoute: typeof AppLeaderboardRoute
+  AppLearnRoute: typeof AppLearnRoute
+  AppOnboardingRoute: typeof AppOnboardingRoute
+  AppPricingRoute: typeof AppPricingRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppProgressRoute: typeof AppProgressRoute
+  AppScenariosRoute: typeof AppScenariosRouteWithChildren
+  AppShadowingRoute: typeof AppShadowingRoute
+  AppSpeakRoute: typeof AppSpeakRoute
+  AppTopikRoute: typeof AppTopikRoute
+  AppVocabularyRoute: typeof AppVocabularyRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppLessonSlugRoute: typeof AppLessonSlugRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAchievementsRoute: AppAchievementsRoute,
+  AppDashboardRoute: AppDashboardRoute,
+  AppFreetalkRoute: AppFreetalkRoute,
+  AppGrammarRoute: AppGrammarRoute,
+  AppHistoryRoute: AppHistoryRoute,
+  AppLeaderboardRoute: AppLeaderboardRoute,
+  AppLearnRoute: AppLearnRoute,
+  AppOnboardingRoute: AppOnboardingRoute,
+  AppPricingRoute: AppPricingRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppProgressRoute: AppProgressRoute,
+  AppScenariosRoute: AppScenariosRouteWithChildren,
+  AppShadowingRoute: AppShadowingRoute,
+  AppSpeakRoute: AppSpeakRoute,
+  AppTopikRoute: AppTopikRoute,
+  AppVocabularyRoute: AppVocabularyRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppLessonSlugRoute: AppLessonSlugRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  AuthRoute: AuthRoute,
   CoursesRoute: CoursesRoute,
   LearnRoute: LearnRoute,
   PracticeRoute: PracticeRoute,
