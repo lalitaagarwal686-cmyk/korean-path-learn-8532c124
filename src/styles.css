@@ -62,7 +62,10 @@
   --font-kr: "Noto Sans KR", "Manrope", sans-serif;
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-breathe: breathe 3.4s ease-in-out infinite;
   --animate-shimmer: shimmer 2.4s linear infinite;
+
 }
 
 :root {
