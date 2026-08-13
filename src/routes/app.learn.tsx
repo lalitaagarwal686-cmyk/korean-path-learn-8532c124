@@ -57,7 +57,7 @@ function LearnPage() {
                       <h3 className="font-display text-base font-semibold">{lesson.title}</h3>
                       <p className="mt-1 flex-1 text-sm text-muted-foreground">{lesson.summary}</p>
                       <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
-                        <span>{lesson.duration_minutes ?? 5} min</span>
+                        <span>{lesson.minutes ?? 5} min</span>
                         <span>{row?.status === "completed" ? "Completed" : row ? "In progress" : "New"}</span>
                       </div>
                       <Button asChild size="sm" className="mt-3">

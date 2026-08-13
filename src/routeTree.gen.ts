@@ -20,6 +20,7 @@ import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as TopikRouteImport } from './routes/topik'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppDashboardRouteImport } from './routes/app.dashboard'
+import { Route as AppLearnRouteImport } from './routes/app.learn'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -76,6 +77,11 @@ const AppDashboardRoute = AppDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
+const AppLearnRoute = AppLearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/progress': typeof ProgressRoute
   '/topik': typeof TopikRoute
   '/app/dashboard': typeof AppDashboardRoute
+  '/app/learn': typeof AppLearnRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/progress': typeof ProgressRoute
   '/topik': typeof TopikRoute
   '/app/dashboard': typeof AppDashboardRoute
+  '/app/learn': typeof AppLearnRoute
   '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/progress': typeof ProgressRoute
   '/topik': typeof TopikRoute
   '/app/dashboard': typeof AppDashboardRoute
+  '/app/learn': typeof AppLearnRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/progress'
     | '/topik'
     | '/app/dashboard'
+    | '/app/learn'
     | '/app/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/progress'
     | '/topik'
     | '/app/dashboard'
+    | '/app/learn'
     | '/app'
   id:
     | '__root__'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/progress'
     | '/topik'
     | '/app/dashboard'
+    | '/app/learn'
     | '/app/'
   fileRoutesById: FileRoutesById
 }
@@ -248,16 +260,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/learn': {
+      id: '/app/learn'
+      path: '/learn'
+      fullPath: '/app/learn'
+      preLoaderRoute: typeof AppLearnRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppDashboardRoute: typeof AppDashboardRoute
+  AppLearnRoute: typeof AppLearnRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppDashboardRoute: AppDashboardRoute,
+  AppLearnRoute: AppLearnRoute,
   AppIndexRoute: AppIndexRoute,
 }
 
